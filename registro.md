@@ -465,6 +465,8 @@ Los dominios alojados en net1001/net1002 se marcan con acceso `whm` en la tabla 
 
 76 cuentas cPanel bajo el reseller webcloud.es. Acceso vía API WHM con el token del servidor correspondiente (`whm — net100X.webcloud.es` en la bóveda). Para entrar a una: `create_user_session` de WHM.
 
+> ⚠️ **Estas son cuentas cPanel, NO necesariamente los sitios en producción.** Varias alojan solo el **staging** (ej. `aybdental.es` / cuenta `aybdentales` = staging; la producción está en otro hosting). Verificar antes de tratar una cuenta WHM como el sitio en vivo. Ver `CLAUDE.md` → "Staging vs producción".
+
 | Dominio (cuenta) | Servidor | Usuario cPanel |
 |---|---|---|
 | abaci.es | net1002 | abaci |
