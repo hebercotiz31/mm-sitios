@@ -460,3 +460,86 @@ curl -s -H "Authorization: whm oggrinzn:$TOK" \
 ```
 
 Los dominios alojados en net1001/net1002 se marcan con acceso `whm` en la tabla de arriba a medida que se trabajan.
+
+## Cuentas del reseller (WHM) — mapa dominio → servidor
+
+76 cuentas cPanel bajo el reseller webcloud.es. Acceso vía API WHM con el token del servidor correspondiente (`whm — net100X.webcloud.es` en la bóveda). Para entrar a una: `create_user_session` de WHM.
+
+| Dominio (cuenta) | Servidor | Usuario cPanel |
+|---|---|---|
+| abaci.es | net1002 | abaci |
+| acuarelasprofesionales.com | net1002 | aletheia |
+| aerotermicamadrid.com | net1002 | aerotermicamad |
+| afbiinternacional.com | net1002 | afbiinternaciona |
+| agustinperezpsicologo.com | net1001 | agustinperez |
+| ameliesalon.es | net1002 | ameliesalones |
+| amem.es | net1002 | amemes |
+| aquilesadicciones.com | net1002 | aquilesadiccione |
+| aybdental.es | net1002 | aybdentales |
+| barnaexperience.com.es | net1002 | barnaexperience |
+| bienestarfms.com | net1001 | bienestarfms |
+| camperx.es | net1002 | camperxes |
+| catsitters.es | net1002 | catsitterses |
+| centreterapeuticdia1.com | net1001 | centreterapeutic |
+| centroclinicoquirurgico.com | net1002 | ccqaranjuez |
+| centroeuropeodecirugiaestetica.com | net1002 | centroeuropeodec |
+| centrosvidanova.com | net1002 | centrosvidanova1 |
+| cesarpadilla.cirugiaroboticamadrid.com | net1002 | cesarpadilla |
+| church-spain.com | net1001 | churchspain |
+| cirugiaesteticade.com | net1002 | cirugiaesteticad |
+| clinicadentalml.com | net1002 | clinicadentalmlc |
+| clinicadentalmonforte.com | net1002 | dentalmonforte |
+| clinicadrjones.com | net1001 | drjones |
+| clinicaodda.com | net1002 | clinicaodda |
+| clinicapodologiaclaverol.com | net1002 | podologiaclavero |
+| clinicaricardosanchez.com | net1002 | clinicaricardosa |
+| clinicasdenapole.com | net1002 | clinicasdenapole |
+| ctsoma.es | net1002 | ctsomaes |
+| detectaqua.es | net1002 | detectaquaes |
+| draevelynalba.com | net1002 | draevelynalba |
+| dramarisargsyan.com | net1001 | drsargsyan |
+| drapampin.com | net1002 | drapampincom |
+| drcristinavaduva.com | net1001 | drcristinavaduva |
+| drmazarro.com | net1001 | drmazarro |
+| elseptimocielotarot.com | net1002 | septcielotarot |
+| espacosl.com | net1002 | yesenia |
+| europeanmedicalcentre.com | net1001 | european |
+| facialia.com | net1002 | facialiasiteadm |
+| frontelainjertocapilar.com | net1002 | frontelainjerto |
+| fusionmas34.com | net1001 | fusionmasadmin |
+| gabeldental.com | net1002 | gabeldental |
+| gastrogeniuschallenge.com | net1002 | gastrogeniuschal |
+| ginecologiaalmeraya.com | net1001 | miguelzu |
+| ginecologozuniga.com | net1002 | ginecologozuniga |
+| homeestetica.cirugiaroboticamadrid.com | net1002 | homeestetica |
+| homeestetica.es | net1002 | homeesticaes |
+| igbartesmarciales.com | net1002 | ivanartemarcial |
+| institutomediq.com | net1002 | institutomediq |
+| institutortopedicomadrid.com | net1002 | institutortopedi |
+| ladyai.app | net1001 | ladyai |
+| librocicatricessilenciosas.com | net1002 | librocicatricess |
+| logopsiestudios.com | net1002 | logopsi |
+| malagarentacars.com | net1001 | malagarentacars |
+| metodica.com | net1002 | metodicaweb |
+| nalarodriguez.com | net1002 | nalarodriguez |
+| nextgenbrokers.ae | net1002 | ngbrokers |
+| nextgenpayment.eu | net1001 | nextgenpayment |
+| opoformacion.com | net1002 | opoformacion |
+| ortoregenclinic.com | net1002 | hebercot |
+| pepeypepabar.com | net1002 | pepeypepabar |
+| personalife-style.com | net1002 | personalifestyle |
+| pomoto.es | net1001 | pomotoes |
+| premiumshuttles.es | net1002 | premiumshuttlese |
+| prestigemchcs.com | net1002 | prestigemchcscom |
+| restauraclinic.com | net1002 | restauraclinic |
+| seogoliat.com.bak | net1002 | oggrinzn |
+| seogoliat.com | net1001 | ftuluduf |
+| solariainnovacion.com | net1001 | solariainnova |
+| solucionesintegralesaragon.com | net1002 | siaragon |
+| staging.premioslomejor.com | net1002 | premioslomejorad |
+| toquedeplacer.es | net1002 | yirley |
+| vgprints.es | net1002 | vgprints |
+| videosdebodaenmalaga.com | net1002 | videosdeboda |
+| vivirconepilepsia.net | net1002 | vivirconepilepsi |
+| zqinclinic.com | net1002 | zqincliniccom |
+| zyrasound.com | net1002 | zyrasoundcom |
