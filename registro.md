@@ -489,12 +489,20 @@ Item en la bóveda `wp — <dominio>` (usuario + app password). Verificadas por 
 
 **Contraseñas de admin rotadas** (default `*X0om413l` → única fuerte, guardada en bóveda): `cesarpadilla.es` (login verificado ✓), `ortodolor.com` (cambio REST 200; login por navegador no verificable desde acá por WAF webcloud — ver nota abajo).
 
+### Sitios a código (no WordPress) — acceso por cPanel/WHM del reseller
+
+No llevan application password. Acceso a archivos vía token WHM (Fileman/FTP) + `create_user_session` para cPanel.
+
+| Sitio | Cliente | Servidor | Cuenta cPanel | Nota |
+|---|---|---|---|---|
+| nextgenbrokers.ae | Nextgen | net1002 | ngbrokers | index.html + PLAN.md en raíz |
+| nextgenpayment.eu | Nextgen | net1001 | nextgenpayment | `public_html` vacío (¿sin desplegar?) |
+
 ### Pendientes de reseteo (contraseña vencida → reset en Installatron por Heber)
 
 | Sitio | Cliente |
 |---|---|
 | aybdental.es (producción) | Pablo y Belén |
-| _(sin item)_ nextgenpayment | Nextgen |
 
 > **Nota WAF webcloud (`/bloqueos/`):** algunos sitios del reseller redirigen `wp-login.php` a `webcloud.es/bloqueos/login.php` (rule_id 201) bloqueando **logins automatizados** (curl), aunque el navegador del cliente pasa. En esos sitios: la **REST API con app password sigue funcionando** — verificar acceso por REST (`/wp-json/wp/v2/users/me`), NO por `wp-login.php`. Ej.: ortodolor.com. Con la app password se puede resetear la contraseña admin vía `POST /wp-json/wp/v2/users/<id>` sin depender de wp-login.
 
