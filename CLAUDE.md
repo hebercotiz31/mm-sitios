@@ -13,6 +13,26 @@ Este directorio es la base de operaciones para tareas sobre los sitios de client
 4. Ejecutar la tarea con la herramienta que indica la columna Acceso.
 5. Reportar el resultado. Si algo del registro estaba desactualizado (PHP, hosting, acceso), actualizar la fila.
 
+## Escalación de acceso (resolver con el mínimo de intervención)
+
+Ante una tarea sobre un sitio, subir por esta escalera. Las capas **autónomas** se hacen sin frenar; las **mutaciones sobre producción** se avisan (una línea) antes de ejecutarlas — son sitios de clientes en vivo.
+
+**WordPress — autónomo (sin frenar):**
+1. **App password (REST)** — si existe `wp — dominio`, usarla y hacer la tarea por REST (`/wp-json/...`). Camino preferente: no pasa por login ni 2FA.
+2. **Crear app password** vía `wp-login` + nonce con la contraseña admin de la bóveda (headers de navegador si el sitio rechaza requests "no-browser" con 406). Es aditiva y revocable → autónomo.
+3. **Diagnóstico de solo lectura**, lectura de archivos por Fileman, reintentos, probar host/usuario alternativo, y **navegador headless** (Chrome DevTools MCP) para páginas que necesitan JS o no responden a curl — para operar superficies **ya autorizadas** (wp-admin con app password, cPanel vía token WHM).
+
+**WordPress — requiere confirmación explícita de Heber, una por una, antes de ejecutar:**
+- **Resetear/cambiar la contraseña de un admin** en producción. Proponer el plan y **esperar el OK**; no ejecutar sin confirmación, aunque exista una vía técnica autónoma.
+- **Escribir/editar archivos** en un sitio de producción.
+- Acciones **destructivas o irreversibles**: DNS, borrados, desactivar plugins en prod, migraciones, suspensiones.
+
+**Nunca:** webshells ni drops de código ejecutable, ni rodear controles de seguridad. Siempre hay vía sana (REST / API oficial / navegador autorizado).
+
+**Sitios a código:** lectura por Fileman/FTP autónoma; escritura en producción se avisa.
+
+> **El mejor workaround es adelantarse al cuello de botella:** crear la app password de cada sitio **mientras la credencial está vigente**. Desde ahí toda tarea corre por la capa 1 (REST, autónoma) y no hace falta resetear nada. Front-load de app passwords = casi nunca hay que frenar.
+
 ## Herramientas por tipo de acceso
 
 - **`rest`** — WordPress REST API: `curl -u "usuario:app_password" https://dominio.com/wp-json/wp/v2/...`. Plugins: `/wp/v2/plugins`, posts: `/wp/v2/posts`, usuarios: `/wp/v2/users`.
