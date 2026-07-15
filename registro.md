@@ -483,16 +483,20 @@ Item en la bóveda `wp — <dominio>` (usuario + app password). Verificadas por 
 | frontelainjertocapilar.com | Frontela | hebercot | 2026-07-15 |
 | claverolpodologia.com | Mónica | hebercot | 2026-07-15 |
 | go.ares-medical.com | Ares Medical | hebercot | 2026-07-15 |
+| innovacirugia.com | Innova | Heber | 2026-07-15 |
+| cesarpadilla.es | Padilla | hebercot | 2026-07-15 |
+| ortodolor.com | Ortoregenclinic Ortolà (ex ortoregenclinic.com) | hebercot | 2026-07-15 |
+
+**Contraseñas de admin rotadas** (default `*X0om413l` → única fuerte, guardada en bóveda): `cesarpadilla.es` (login verificado ✓), `ortodolor.com` (cambio REST 200; login por navegador no verificable desde acá por WAF webcloud — ver nota abajo).
 
 ### Pendientes de reseteo (contraseña vencida → reset en Installatron por Heber)
 
 | Sitio | Cliente |
 |---|---|
 | aybdental.es (producción) | Pablo y Belén |
-| cesarpadilla.es | Padilla |
-| ortoregenclinic.com | Ortoregenclinic Ortolà |
-| innovacirugia.com | Innova (wp-login redirige — posible login oculto) |
 | _(sin item)_ nextgenpayment | Nextgen |
+
+> **Nota WAF webcloud (`/bloqueos/`):** algunos sitios del reseller redirigen `wp-login.php` a `webcloud.es/bloqueos/login.php` (rule_id 201) bloqueando **logins automatizados** (curl), aunque el navegador del cliente pasa. En esos sitios: la **REST API con app password sigue funcionando** — verificar acceso por REST (`/wp-json/wp/v2/users/me`), NO por `wp-login.php`. Ej.: ortodolor.com. Con la app password se puede resetear la contraseña admin vía `POST /wp-json/wp/v2/users/<id>` sin depender de wp-login.
 
 ## Cuentas del reseller (WHM) — mapa dominio → servidor
 
