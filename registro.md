@@ -463,9 +463,36 @@ Los dominios alojados en net1001/net1002 se marcan con acceso `whm` en la tabla 
 
 ## Application passwords creadas (acceso `rest` listo)
 
-| Sitio | Usuario | Item Bitwarden | Fecha |
+Item en la bóveda `wp — <dominio>` (usuario + app password). Verificadas por REST al crearse.
+
+| Sitio | Cliente | Usuario | Fecha |
 |---|---|---|---|
-| staging.aybdental.es | 9tpttw (admin) | `wp — staging.aybdental.es` | 2026-07-15 |
+| staging.aybdental.es | Pablo y Belén (staging) | 9tpttw | 2026-07-15 |
+| zqinclinic.com | ZQIN | medicalmarketing | 2026-07-15 |
+| clinicaodda.com | ODDA | superuser | 2026-07-15 |
+| ccqaranjuez.agenciamarketingmedico.digital | Aranjuez | hebercot | 2026-07-15 |
+| ctsoma.es | SOMA | hebercot | 2026-07-15 |
+| institutofacialourense.es | Héctor (Ourense) | hebercot | 2026-07-15 |
+| ginecologozuniga.com | Miguel Zúñiga | hebercot | 2026-07-15 |
+| neuromed.es | Neuromed | Heber | 2026-07-15 |
+| agustinperezpsicologo.com | Agustín psicólogo | hebercot | 2026-07-15 |
+| amem.es | Amen | AMEM | 2026-07-15 |
+| go.centroeuropeodecirugiaestetica.com | Centro Europeo Estética | hebercot | 2026-07-15 |
+| docclinic.es | Doc clinic | heber@medicalmarketing.es | 2026-07-15 |
+| clinicaricardosanchez.com | Esther | contenido | 2026-07-15 |
+| frontelainjertocapilar.com | Frontela | hebercot | 2026-07-15 |
+| claverolpodologia.com | Mónica | hebercot | 2026-07-15 |
+| go.ares-medical.com | Ares Medical | hebercot | 2026-07-15 |
+
+### Pendientes de reseteo (contraseña vencida → reset en Installatron por Heber)
+
+| Sitio | Cliente |
+|---|---|
+| aybdental.es (producción) | Pablo y Belén |
+| cesarpadilla.es | Padilla |
+| ortoregenclinic.com | Ortoregenclinic Ortolà |
+| innovacirugia.com | Innova (wp-login redirige — posible login oculto) |
+| _(sin item)_ nextgenpayment | Nextgen |
 
 ## Cuentas del reseller (WHM) — mapa dominio → servidor
 
