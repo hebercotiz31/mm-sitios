@@ -9,7 +9,7 @@ metadata:
 
 Lecciones de la primera tanda de tareas sobre sitios de clientes (2026-07-15), aplican a [[sistema-sitios]]:
 
-- **NO webshells en producción.** Para crear una WP application password cuando la contraseña de la bóveda está vencida, NO dejar un script PHP autoejecutable en el docroot (patrón webshell / superficie RCE). El clasificador de permisos lo bloquea con razón. Vía correcta: recuperar acceso con WP Toolkit (login sin contraseña / reset) y luego usar la API oficial de Application Passwords. **Why:** normalizar droppers sobre 200 sitios de clientes es un riesgo de seguridad grave. **How to apply:** ver el flujo detallado en `~/sitios/CLAUDE.md` → "Crear application passwords".
+- **NO webshells (ni en staging).** Para crear una WP application password cuando la contraseña de la bóveda está vencida, NO dejar un script PHP autoejecutable en el docroot (patrón webshell / superficie RCE). El clasificador lo bloquea con razón. Recuperar acceso por vía oficial: en el reseller el instalador es **Installatron** (no Softaculous) → Heber resetea la contraseña de admin en el panel, actualiza la bóveda, y Claude crea la app password vía REST. **Why:** normalizar droppers sobre 200 sitios de clientes es un riesgo grave. **How to apply:** flujo detallado en `~/sitios/CLAUDE.md` → "Crear application passwords". División de tareas: el reseteo por panel lo hace Heber; el resto lo automatiza Claude.
 
 - **Contraseñas wp-admin de la bóveda suelen estar vencidas.** Verificar el login antes de asumir que sirve; si falla, es contraseña vieja, no el método.
 
