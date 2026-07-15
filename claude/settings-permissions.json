@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bw get *)",
+      "Bash(bw list *)",
+      "Bash(bw sync*)",
+      "Bash(bw status*)",
+      "Bash(bw lock*)",
+      "Bash(bw unlock --check*)"
+    ]
+  }
+}

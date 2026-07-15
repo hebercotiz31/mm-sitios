@@ -1,0 +1,8 @@
+# NUNCA versionar secretos ni sesiones
+*.csv
+*.env
+bw-session*
+*session*
+*.key
+*.pem
+.DS_Store
