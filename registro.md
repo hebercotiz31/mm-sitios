@@ -461,6 +461,12 @@ curl -s -H "Authorization: whm oggrinzn:$TOK" \
 
 Los dominios alojados en net1001/net1002 se marcan con acceso `whm` en la tabla de arriba a medida que se trabajan.
 
+## Application passwords creadas (acceso `rest` listo)
+
+| Sitio | Usuario | Item Bitwarden | Fecha |
+|---|---|---|---|
+| staging.aybdental.es | 9tpttw (admin) | `wp — staging.aybdental.es` | 2026-07-15 |
+
 ## Cuentas del reseller (WHM) — mapa dominio → servidor
 
 76 cuentas cPanel bajo el reseller webcloud.es. Acceso vía API WHM con el token del servidor correspondiente (`whm — net100X.webcloud.es` en la bóveda). Para entrar a una: `create_user_session` de WHM.
