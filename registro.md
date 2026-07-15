@@ -495,8 +495,8 @@ No llevan application password. Acceso a archivos vía token WHM (Fileman/FTP) +
 
 | Sitio | Cliente | Servidor | Cuenta cPanel | Nota |
 |---|---|---|---|---|
-| nextgenbrokers.ae | Nextgen | net1002 | ngbrokers | index.html + PLAN.md en raíz |
-| nextgenpayment.eu | Nextgen | net1001 | nextgenpayment | `public_html` vacío (¿sin desplegar?) |
+| nextgenbrokers.ae | Nextgen | net1002 | ngbrokers | **Sitio real** (a código): index.html + secciones about-us/articles/events/services/start-now/policies-terms/nextgen-payment-newsletter + _assets. Docroot `/home/ngbrokers/public_html`. |
+| nextgenpayment.eu | Nextgen | net1001 | nextgenpayment | Cuenta vacía (solo cgi-bin) — dominio parkeado; el código de Nextgen Payment vive en la cuenta `ngbrokers`. |
 
 ### Pendientes de reseteo (contraseña vencida → reset en Installatron por Heber)
 
