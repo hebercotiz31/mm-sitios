@@ -463,7 +463,9 @@ Los dominios alojados en net1001/net1002 se marcan con acceso `whm` en la tabla 
 
 ## Application passwords creadas (acceso `rest` listo)
 
-Item en la bóveda `wp — <dominio>` (usuario + app password). Verificadas por REST al crearse.
+**Front-load 2026-07-15:** tanda sobre 210 sitios (173 principales + 37 landings) → **131 sitios con acceso `rest`** en la bóveda. Fuente de verdad viva: `bw list items --search "wp — "`. Pendientes accionables (62 a resetear, 29 sin responder, 7 con la función deshabilitada) en **`pendientes-apppass.md`**.
+
+Item en la bóveda `wp — <dominio>` (usuario + app password). Verificadas por REST al crearse. La tabla siguiente lista las primeras creadas manualmente; el resto (tanda) vive en la bóveda.
 
 | Sitio | Cliente | Usuario | Fecha |
 |---|---|---|---|
