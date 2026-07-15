@@ -48,8 +48,9 @@ Se usan para el acceso `rest` (REST API con `curl -u "usuario:app_password"`). L
 6. Guardar en la bóveda como `wp — dominio.com` (username + app password, note "application password REST API"). No pisar el item de la contraseña original.
 
 **Cuando el login falla** (`ERROR: usuario o contraseña incorrectos`): la contraseña de la bóveda **está vencida** (pasa seguido). NO dropear PHP. Recuperar acceso por vía oficial y luego rehacer el flujo de arriba:
-- Reseller / cualquier cPanel con **WP Toolkit** → botón "Iniciar sesión" (login de admin sin contraseña), o reset de contraseña desde ahí.
-- Actualizar la contraseña vigente en la bóveda antes de continuar.
+- **Sitios en el reseller** (webcloud.es): el instalador es **Installatron** (NO Softaculous), en cPanel → Installatron → editar la instalación de WordPress → resetear la contraseña de admin. **Este paso lo hace Heber** en el panel (mutación de credencial vía UI; la API de Installatron no vale la pena reversear). Es su flujo habitual y de confianza.
+- Luego Heber actualiza la contraseña vigente en la bóveda (item `wp — dominio` o el login del dominio), y Claude retoma el flujo REST automático para crear la app password.
+- **No disponible en estos servidores:** el módulo UAPI `Cron` no está instalado (no sirve para automatizar por cron). `create_user_session` genera un **link de login vivo** = credencial; el clasificador (bien) impide imprimirlo — no intentar materializarlo, Heber entra a cPanel por su vía normal.
 
 ## Referencia API WHM / cPanel (sin SSH, puerto 2087)
 
