@@ -2,6 +2,22 @@
 
 Este directorio es la base de operaciones para tareas sobre los sitios de clientes. El inventario vive en `registro.md`.
 
+## Cómo Heber delega una tarea
+
+Lenguaje natural, formato libre. Lo mínimo: **qué sitio** + **qué hacer**. Ideal: sumar el **para qué** (contexto/intención — mejora el resultado). No hace falta pasar credenciales ni URLs: se resuelven solas contra `registro.md` + la bóveda.
+
+- Identificar el sitio por **dominio o nombre de cliente** (resolver contra `registro.md`; si hay ambigüedad, preguntar en vez de adivinar).
+- Resolver el acceso solo (app password `rest` / whm / archivos) según la escalera de acceso.
+- Ejecutar y **reportar con el outcome primero**. Confirmar antes de acciones que mutan producción (reset de contraseña, escribir archivos en prod, DNS, borrados, etc.).
+- Si el sitio aún no tiene app password y su credencial está vencida → avisar para el reset en Installatron, y completar después.
+
+**Ejemplos de cómo pedírmelo:**
+- `clinicaodda.com: actualizá los plugins que tengan update disponible`
+- `el sitio de Neuromed carga lento, revisá por qué` *(diagnóstico — reporto y espero, no toco)*
+- `frontela: publicá este post [texto…] — es para la campaña de septiembre`
+- `ares medical: cambiá el teléfono del footer a +34 600 000 000`
+- `nextgen (nextgenbrokers.ae): corregí un typo en la sección services` *(sitio a código → por archivos)*
+
 ## Flujo para cualquier tarea sobre un sitio
 
 1. Buscar el sitio en `registro.md` (por dominio o nombre de cliente) y ver su tipo de acceso.
