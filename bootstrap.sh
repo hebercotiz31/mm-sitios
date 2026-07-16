@@ -42,15 +42,16 @@ jq -s '
 ' "$SETTINGS" "$PERMS" > "$tmp" && mv "$tmp" "$SETTINGS"
 echo "reglas allow ahora:"; jq -r '.permissions.allow[]' "$SETTINGS" | sed 's/^/  - /'
 
-# 3b. Instalar el puntero global en ~/.claude/CLAUDE.md (para que el contexto de sitios
-#     esté disponible desde CUALQUIER directorio, no solo desde ~/sitios). Idempotente.
-say "Instalando puntero global en $CLAUDE_DIR/CLAUDE.md"
+# 3b. Enlazar ~/.claude/CLAUDE.md al archivo global versionado (symlink) para que el
+#     contexto esté disponible desde CUALQUIER directorio y se sincronice vía git. Idempotente.
+say "Enlazando $CLAUDE_DIR/CLAUDE.md → repo (symlink)"
 GLOBAL_MD="$CLAUDE_DIR/CLAUDE.md"
-if grep -q "mm-sitios:pointer" "$GLOBAL_MD" 2>/dev/null; then
-  echo "puntero ya presente"
+GLOBAL_SRC="$REPO_DIR/claude/CLAUDE.global.md"
+if [ -L "$GLOBAL_MD" ] && [ "$(readlink "$GLOBAL_MD")" = "$GLOBAL_SRC" ]; then
+  echo "symlink ya correcto"
 else
-  { [ -s "$GLOBAL_MD" ] || echo "# Instrucciones globales"; echo ""; cat "$REPO_DIR/claude/global-pointer.md"; } >> "$GLOBAL_MD"
-  echo "puntero agregado"
+  [ -e "$GLOBAL_MD" ] && [ ! -L "$GLOBAL_MD" ] && { mv "$GLOBAL_MD" "$GLOBAL_MD.bak.$(date +%s)"; warn "había un CLAUDE.md previo → respaldado como .bak"; }
+  ln -sfn "$GLOBAL_SRC" "$GLOBAL_MD"; echo "symlink creado → $GLOBAL_SRC"
 fi
 
 # 4. Copiar archivos de memoria (referencia; el cerebro operativo real es ./CLAUDE.md)

@@ -1,3 +1,9 @@
+# Instrucciones globales
+
+<!-- Este archivo es la fuente de verdad de ~/.claude/CLAUDE.md en todas las máquinas.
+     ~/.claude/CLAUDE.md es un symlink a este archivo (lo crea bootstrap.sh).
+     Editar acá + git push → git pull en la otra máquina lo sincroniza. -->
+
 <!-- mm-sitios:pointer -->
 ## Trabajos sobre webs de clientes (WordPress / hosting)
 
