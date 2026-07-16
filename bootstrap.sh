@@ -42,6 +42,17 @@ jq -s '
 ' "$SETTINGS" "$PERMS" > "$tmp" && mv "$tmp" "$SETTINGS"
 echo "reglas allow ahora:"; jq -r '.permissions.allow[]' "$SETTINGS" | sed 's/^/  - /'
 
+# 3b. Instalar el puntero global en ~/.claude/CLAUDE.md (para que el contexto de sitios
+#     esté disponible desde CUALQUIER directorio, no solo desde ~/sitios). Idempotente.
+say "Instalando puntero global en $CLAUDE_DIR/CLAUDE.md"
+GLOBAL_MD="$CLAUDE_DIR/CLAUDE.md"
+if grep -q "mm-sitios:pointer" "$GLOBAL_MD" 2>/dev/null; then
+  echo "puntero ya presente"
+else
+  { [ -s "$GLOBAL_MD" ] || echo "# Instrucciones globales"; echo ""; cat "$REPO_DIR/claude/global-pointer.md"; } >> "$GLOBAL_MD"
+  echo "puntero agregado"
+fi
+
 # 4. Copiar archivos de memoria (referencia; el cerebro operativo real es ./CLAUDE.md)
 say "Copiando memoria de referencia"
 MEMDIR="$CLAUDE_DIR/projects/$(echo "$HOME/sitios" | sed 's#/#-#g')/memory"
